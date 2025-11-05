@@ -16,15 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.i18n import i18n_patterns 
 from base import views
 
-urlpatterns = [
+
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    
     path('', views.TopView.as_view(), name='top'),
     
     path('site-master/user-create/', views.UserCreateView.as_view(), name='user_create'),
     
     path('login/', views.AuthLoginView.as_view(), name="login"),
     path('logout/', views.AuthLogoutView.as_view(), name="logout"),
-]
+    
+    prefix_default_language=True
+)

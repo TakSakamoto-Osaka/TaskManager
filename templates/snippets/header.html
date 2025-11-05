@@ -1,21 +1,32 @@
+{% load i18n %}
+{% load i18n_switcher %}
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-bottom: 1rem;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'top' %}">タスク管理</a>
+        <a class="navbar-brand" href="{% url 'top' %}">{% trans "タスク管理" %}</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                <a href="{{ request|switch_i18n:'ja' }}">
+                    <img class="i18n_flag" style="width: 32px; vertical-align: text-middle;" src="{% static 'images/flag-ja-16.png' %}"/>
+                </a> 
+                <a href="{{ request|switch_i18n:'pt' }}">
+                    <img class="i18n_flag" style="width: 32px; vertical-align: text-middle;" src="{% static 'images/flag-pt-16.png' %}"/>
+                </a>
+
                 {% if request.user.is_authenticated %}
                 <span class="navbar-text">
-                    ようこそ {{ user.get_username }} さん
+                    {% trans "ようこそ" %} {{ user.get_username }} {% trans "さん" %}
                 </span>
                 <li class="nav-item">
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}
-                        <input class="nav-link" type="submit" value="ログアウト">
+                        <input class="nav-link" type="submit" value="{% trans "ログアウト" %}">
                     </form>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">ログイン</a>
+                    <a class="nav-link" href="{% url 'login' %}">{% trans "ログイン" %}</a>
                 </li>
                 {% endif %}
             </ul>
