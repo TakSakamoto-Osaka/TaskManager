@@ -12,7 +12,7 @@ class WorkType(models.Model):
         return self.name
 
 
-class CommmutingMethod(models.Model):
+class CommutingMethod(models.Model):
     '''
     通勤方法モデル
     '''
@@ -37,7 +37,7 @@ class Staff(models.Model):
     billed_unit_price = models.PositiveIntegerField(verbose_name=_("請求単価"))
     pay_unit_price = models.PositiveIntegerField(verbose_name=_("支払単価"))
     contact_period = models.PositiveIntegerField(verbose_name=_("契約期間(ヶ月)"))
-    commuting_method = models.ForeignKey(CommmutingMethod, on_delete=models.SET_NULL, null=True, verbose_name=_("通勤方法"))
+    commuting_method = models.ForeignKey(CommutingMethod, on_delete=models.SET_NULL, null=True, verbose_name=_("通勤方法"))
     commuting_distance = models.FloatField(verbose_name=_("通勤距離(km)"))
     commuting_section = models.CharField(max_length=50, verbose_name=_("通勤区間"))
     commuting_start_date = models.DateField(verbose_name=_("通勤開始日"))

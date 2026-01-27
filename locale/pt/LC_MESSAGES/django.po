@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 19:44+0900\n"
+"POT-Creation-Date: 2025-11-05 21:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,7 +139,7 @@ msgid "Português"
 msgstr ""
 
 #: templates/pages/login.html:5 templates/pages/login.html:7
-#: templates/pages/login.html:13 templates/snippets/header.html:20
+#: templates/pages/login.html:13 templates/snippets/header.html:29
 msgid "ログイン"
 msgstr "Conecte-se"
 
@@ -147,19 +147,23 @@ msgstr "Conecte-se"
 msgid "こんにちは"
 msgstr "Olá"
 
-#: templates/snippets/header.html:5
+#: templates/pages/top.html:6
+msgid "有休休暇の管理"
+msgstr "gestão de férias remuneradas"
+
+#: templates/snippets/header.html:7
 msgid "タスク管理"
 msgstr "gerenciamento de tarefas"
 
-#: templates/snippets/header.html:10
+#: templates/snippets/header.html:19
 msgid "ようこそ"
 msgstr "Bem-vindo"
 
-#: templates/snippets/header.html:10
+#: templates/snippets/header.html:19
 msgid "さん"
 msgstr ""
 
-#: templates/snippets/header.html:15
+#: templates/snippets/header.html:24
 msgid "ログアウト"
 msgstr "Sair"
 

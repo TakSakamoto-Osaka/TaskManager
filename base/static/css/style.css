@@ -2,3 +2,9 @@
     width: 16px;
     vertical-align: text-middle;
 }
+
+.main-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    background-color: aquamarine;
+}

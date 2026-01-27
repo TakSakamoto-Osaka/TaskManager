@@ -4,12 +4,13 @@
 
 {% block title %}{% trans "ログイン" %}{% endblock %}
 {% block main %}
-<h1>{% trans "ログイン" %}</h1>
 
+<h1>{% trans "ログイン" %}</h1>
 <form method="post">
     {% csrf_token %}
-    {{ form|bootstrap }}
+    {# { form|bootstrap } #}
+    {{ form.as_p }}
     <br>
-    <input type="submit" class="btn btn-primary" value="{% trans "ログイン" %}">
+    <input type="submit" value="{% trans "ログイン" %}">
 </form>
 {% endblock %}

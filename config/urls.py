@@ -25,6 +25,8 @@ urlpatterns = i18n_patterns(
     path('', views.TopView.as_view(), name='top'),
     
     path('site-master/user-create/', views.UserCreateView.as_view(), name='user_create'),
+   
+    path("temp-worker/joinning-contact-create/", views.JoinningContactCreateView.as_view(), name="joinning_contact_create"),
     
     path('login/', views.AuthLoginView.as_view(), name="login"),
     path('logout/', views.AuthLogoutView.as_view(), name="logout"),
