@@ -7,6 +7,10 @@ class AuthLoginView(LoginView):
     form_class = AuthenticationForm
     template_name = 'pages/login.html'
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['label_suffix'] = ''  # ここでサフィックスを空にする
+        return kwargs
 
 class AuthLogoutView(LoginRequiredMixin, LogoutView):
     template_name = 'top/login.html'

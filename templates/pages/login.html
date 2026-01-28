@@ -6,11 +6,13 @@
 
 <section class="login-content">
     <h1>{% trans "ログイン" %}</h1>
-    <form method="post">
+    <form method="post" class="form-common">
         {% csrf_token %}
         {{ form.as_p }}
         <br>
-        <input type="submit" value="{% trans "ログイン" %}">
+        <div class="elm-center">
+            <input type="submit" class="btn btn-primary" value="{% trans "ログイン" %}">
+        </div>
     </form>
 {% endblock %}
 </section>

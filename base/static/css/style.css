@@ -3,7 +3,7 @@
 input:focus,
 textarea:focus {
   outline: none;                  /* デフォルトは消す */
-  box-shadow: 0 0 0 0.2px silver;  /* 代わりにカスタム枠線 */
+  box-shadow: 0 0 0 0.2px silver; /* 代わりにカスタム枠線 */
   border-radius: 2px;
 }
 
@@ -11,6 +11,99 @@ h1 {
     text-align: center;
     margin-bottom: 1em;
     font-size: 1.5em;
+}
+
+.elm-center {
+  text-align: center;
+}
+
+.form-common p {
+  margin-top: 10px;
+}
+
+.form-common label {
+  display: inline-block;
+  min-width: 20%;
+}
+
+.form-common input[type="submit"] {
+  margin-bottom: 10px;
+}
+
+/* 共通ボタン */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+
+  padding: 0.45em 2em;
+  border-radius: 4px;
+  border: 1px solid #c0c4cc;
+  background-color: #f4f5f7;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+/* hover：少し濃くするだけ */
+.btn:hover {
+  background-color: #e5e7eb;
+  border-color: #b0b5bf;
+}
+
+/* active：押し込んだ感じ */
+.btn:active {
+  background-color: #d6d9e0;
+  border-color: #a3a9b4;
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* フォーカスリング：控えめな青 */
+.btn:focus-visible {
+  outline: 2px solid #607acb;
+  outline-offset: 2px;
+}
+
+/* 無効状態 */
+.btn:disabled,
+.btn[disabled] {
+  cursor: default;
+  opacity: 0.55;
+  background-color: #f5f5f5;
+  border-color: #d2d5dd;
+  color: #888;
+}
+
+/* 重要ボタン（色だけ少し強調したい場合） */
+.btn-primary {
+  background-color: #4c607e;
+  border-color: #465974;
+  color: #f9fafb;
+}
+
+.btn-primary:hover {
+  background-color: #43546f;
+  border-color: #3c4c65;
+}
+
+.btn-primary:active {
+  background-color: #3c4c63;
+  border-color: #344356;
 }
 
 /* 国旗 */
@@ -21,11 +114,11 @@ h1 {
 
 /* ナビゲーション */
 .nav {
-  display: flex;                 /* ロゴとメニューを横並び */
-  justify-content: space-between;/* 左右に配置 */
+  display: flex;                  /* ロゴと右側ブロックを横並び */
+  justify-content: space-between; /* 左右に配置 */
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background-color: palegreen;     /* サイトメインカラー */
+  background-color: palegreen;    /* サイトメインカラー */
   color: darkslategrey;
 }
 
@@ -35,51 +128,100 @@ h1 {
   font-weight: bold;
   color: gray;
   text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* メニューリスト */
+/* ロゴ右側（国旗＋ようこそ＋ログアウト） */
+.nav-right {
+  display: flex;
+  align-items: center; /* 国旗・ようこそ・ボタンの縦位置を中央揃え */
+  gap: 1rem;
+}
+
+/* メニューリスト（ようこそ／ログイン・ログアウトなど） */
 .nav-list {
   list-style: none;
   display: flex;                  /* li を横並び */
   gap: 1rem;                      /* li 間のすき間 */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list > li {
+  margin: 0;
+  padding: 0;
 }
 
 /* 国旗群 */
 .flag-list {
     display: flex;         /* 横並び */
-    gap: 0.5em;             /* 画像間の余白 */
+    gap: 0.5em;           /* 画像間の余白 */
     align-items: center;
 }
 
 /* 各メニューリンク */
-.nav-list a {
+.nav-list a,
+.nav-link {
   text-decoration: none;
   padding: 0.4rem 0.1rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  color: inherit;
 }
 
-.nav-logo {
+.nav-list a:hover,
+.nav-link:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.nav-list a:hover {
+/* ログアウト（特別な display 指定は不要なのでリセット） */
+.logout {
+  display: inline;
+}
+
+/* ログアウトボタン：透明スタイル */
+.btn-logout {
+  background-color: transparent;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* hover 時は軽く背景だけ */
+.btn-logout:hover {
   background-color: rgba(255, 255, 255, 0.15);
+  border-color: transparent;
+}
+
+/* active 時も同系統で */
+.btn-logout:active {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
 }
 
 /* ログイン画面 */
 .login-content {
-    max-width: 800px;
+    max-width: 500px;
     margin: 3% auto;
-    background-color: lightgray;
+    background-color: white;
 }
 
+.login-content input[type="text"],
+.login-content input[type="password"] {
+  width: 60%;
+}
 
 /* 画面幅が 600px 以下のとき */
 @media (max-width: 600px) {
   .nav {
-    flex-direction: column;      /* ロゴの下にメニュー */
+    flex-direction: column;      /* ロゴの下に右側ブロック */
     align-items: flex-start;
+  }
+
+  .nav-right {
+    margin-top: 0.5rem;
   }
 
   .nav-list {
@@ -92,7 +234,8 @@ h1 {
     width: 100%;
   }
 
-  .nav-list a {
+  .nav-list a,
+  .nav-link {
     display: block;
     width: 100%;
     padding: 0.6rem 0.8rem;

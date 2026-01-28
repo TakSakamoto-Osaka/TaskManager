@@ -4,7 +4,9 @@
 
 <nav class="nav">
     <a class="nav-logo" href="{% url 'top' %}">{% trans "タスク管理" %}</a>
-    <ul class="nav-list">
+
+    <!-- 右側全体をひとまとめ -->
+    <div class="nav-right">
         <div class="flag-list">
             <a href="{{ request|switch_i18n:'ja' }}">
                 <img class="i18n_flag" src="{% static 'images/flag-ja-16.png' %}"/>
@@ -12,22 +14,24 @@
             <a href="{{ request|switch_i18n:'pt' }}">
                 <img class="i18n_flag" src="{% static 'images/flag-pt-16.png' %}"/>
             </a>
-        <div>
+        </div>
 
-        {% if request.user.is_authenticated %}
-        <span class="">
-            {% trans "ようこそ" %} {{ user.get_username }} {% trans "さん" %}
-        </span>
-        <li class="">
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <input class="nav-link" type="submit" value="{% trans "ログアウト" %}">
-            </form>
-        </li>
-        {% else %}
-        <li class="">
-            <a class="nav-link" href="{% url 'login' %}">{% trans "ログイン" %}</a>
-        </li>
-        {% endif %}
-    </ul>
+        <ul class="nav-list">
+            {% if request.user.is_authenticated %}
+            <li class="nav-user">
+                {% trans "ようこそ" %} {{ user.get_username }} {% trans "さん" %}
+            </li>
+            <li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <input class="nav-link btn btn-logout" type="submit" value="{% trans "ログアウト" %}">
+                </form>
+            </li>
+            {% else %}
+            <li>
+                <a class="nav-link" href="{% url 'login' %}">{% trans "ログイン" %}</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
 </nav>
