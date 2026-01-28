@@ -1,0 +1,118 @@
+/* ボックスモデルと余白リセット */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* html / body 基本設定 */
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* タイポグラフィ */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* 基本的なテキスト要素 */
+b, strong {
+  font-weight: bolder;
+}
+
+/* 段落 */
+p {
+  margin: 0;
+}
+
+/* リスト */
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* アンカー */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 画像・メディア */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+img {
+  vertical-align: bottom;
+}
+
+/* フォーム要素 */
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #2684ff;
+  outline-offset: 2px;
+}
+
+/* textarea のリサイズ */
+textarea {
+  resize: vertical;
+}
+
+/* テーブル */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  padding: 0;
+  text-align: left;
+}
+
+/* 引用 */
+blockquote, q {
+  quotes: none;
+}
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+}
+
+/* フィールドセットなど */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* hidden属性 */
+[hidden] {
+  display: none !important;
+}

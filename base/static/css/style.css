@@ -1,10 +1,100 @@
-.i18n_flag img {
-    width: 16px;
+/* 共通設定 */
+
+input:focus,
+textarea:focus {
+  outline: none;                  /* デフォルトは消す */
+  box-shadow: 0 0 0 0.2px silver;  /* 代わりにカスタム枠線 */
+  border-radius: 2px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+/* 国旗 */
+.i18n_flag {
+    width: 36px;
     vertical-align: text-middle;
 }
 
-.main-content {
-    max-width: 1500px;
-    margin: 0 auto;
-    background-color: aquamarine;
+/* ナビゲーション */
+.nav {
+  display: flex;                 /* ロゴとメニューを横並び */
+  justify-content: space-between;/* 左右に配置 */
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: palegreen;     /* サイトメインカラー */
+  color: darkslategrey;
+}
+
+/* ロゴ */
+.nav-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: gray;
+  text-decoration: none;
+}
+
+/* メニューリスト */
+.nav-list {
+  list-style: none;
+  display: flex;                  /* li を横並び */
+  gap: 1rem;                      /* li 間のすき間 */
+}
+
+/* 国旗群 */
+.flag-list {
+    display: flex;         /* 横並び */
+    gap: 0.5em;             /* 画像間の余白 */
+    align-items: center;
+}
+
+/* 各メニューリンク */
+.nav-list a {
+  text-decoration: none;
+  padding: 0.4rem 0.1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-logo {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ログイン画面 */
+.login-content {
+    max-width: 800px;
+    margin: 3% auto;
+    background-color: lightgray;
+}
+
+
+/* 画面幅が 600px 以下のとき */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;      /* ロゴの下にメニュー */
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    flex-direction: column;      /* メニューを縦並びに */
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .nav-list li {
+    width: 100%;
+  }
+
+  .nav-list a {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+  }
 }
