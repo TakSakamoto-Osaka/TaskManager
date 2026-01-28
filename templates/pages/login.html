@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load bootstrap %}
 {% load i18n %}
 
 {% block title %}{% trans "ログイン" %}{% endblock %}
@@ -8,7 +7,6 @@
 <h1>{% trans "ログイン" %}</h1>
 <form method="post">
     {% csrf_token %}
-    {# { form|bootstrap } #}
     {{ form.as_p }}
     <br>
     <input type="submit" value="{% trans "ログイン" %}">
